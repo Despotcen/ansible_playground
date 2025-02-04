@@ -1,0 +1,81 @@
+version: '3.8'
+
+services:
+  ubuntu-1:
+    container_name: ubuntu-1
+    hostname: ubuntu-1
+    image: ubuntu:latest
+    restart: unless-stopped
+    ports:
+      - "2221:22"
+    command: /usr/sbin/sshd -D
+    privileged: true
+    networks:
+      - ubuntu-net
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+  ubuntu-2:
+    container_name: ubuntu-2
+    hostname: ubuntu-2
+    image: ubuntu:latest
+    restart: unless-stopped
+    ports:
+      - "2222:22"
+    command: /usr/sbin/sshd -D
+    privileged: true
+    networks:
+      - ubuntu-net
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+  ubuntu-3:
+    container_name: ubuntu-3
+    hostname: ubuntu-3
+    image: ubuntu:latest
+    restart: unless-stopped
+    ports:
+      - "2223:22"
+    command: /usr/sbin/sshd -D
+    privileged: true
+    networks:
+      - ubuntu-net
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+  ubuntu-4:
+    container_name: ubuntu-4
+    hostname: ubuntu-4
+    image: ubuntu:latest
+    restart: unless-stopped
+    ports:
+      - "2224:22"
+    command: /usr/sbin/sshd -D
+    privileged: true
+    networks:
+      - ubuntu-net
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+  ubuntu-5:
+    container_name: ubuntu-5
+    hostname: ubuntu-5
+    image: ubuntu:latest
+    restart: unless-stopped
+    ports:
+      - "2225:22"
+    command: /usr/sbin/sshd -D
+    privileged: true
+    networks:
+      - ubuntu-net
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+networks:
+  ubuntu-net:
+    driver: bridge
