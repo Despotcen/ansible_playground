@@ -1,1 +1,1 @@
-- import_playbook: webservers.yml
+- import_playbook: ./playbooks/common.yml

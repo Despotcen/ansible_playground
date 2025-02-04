@@ -1,5 +1,0 @@
----
-- hosts: webservers
-  tasks:
-    - name: Ping my hosts
-      ansible.builtin.ping:
