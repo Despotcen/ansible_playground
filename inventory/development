@@ -1,6 +1,6 @@
-all:
-  children:
-    dockerservers:
-      hosts:
-        ubuntu1:
-        ubuntu2:
+[dockerservers]
+ubuntu1
+ubuntu2
+
+[all:children]
+dockerservers

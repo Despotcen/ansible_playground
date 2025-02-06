@@ -1,6 +1,7 @@
 ---
 - hosts: dockerservers
   become: true
+  gather_facts: true
   tasks:
-    - name: Ping all my hosts
+    - name: Ping Docker host (using SSH)
       ansible.builtin.ping:
