@@ -1,81 +1,54 @@
-version: '3.8'
+version: '3'
 
 services:
-  ubuntu-1:
-    container_name: ubuntu-1
-    hostname: ubuntu-1
-    image: ubuntu:latest
-    restart: unless-stopped
+  ubuntu1:
+    build: .
+    container_name: ubuntu1
     ports:
       - "2221:22"
-    command: /usr/sbin/sshd -D
-    privileged: true
     networks:
-      - ubuntu-net
-    build:
-      context: .
-      dockerfile: Dockerfile
+      - ansible_network
 
-  ubuntu-2:
-    container_name: ubuntu-2
-    hostname: ubuntu-2
-    image: ubuntu:latest
-    restart: unless-stopped
+  ubuntu2:
+    build: .
+    container_name: ubuntu2
     ports:
       - "2222:22"
-    command: /usr/sbin/sshd -D
-    privileged: true
     networks:
-      - ubuntu-net
-    build:
-      context: .
-      dockerfile: Dockerfile
+      - ansible_network
 
-  ubuntu-3:
-    container_name: ubuntu-3
-    hostname: ubuntu-3
-    image: ubuntu:latest
-    restart: unless-stopped
+  ubuntu3:
+    build: .
+    container_name: ubuntu3
     ports:
       - "2223:22"
-    command: /usr/sbin/sshd -D
-    privileged: true
     networks:
-      - ubuntu-net
-    build:
-      context: .
-      dockerfile: Dockerfile
+      - ansible_network
 
-  ubuntu-4:
-    container_name: ubuntu-4
-    hostname: ubuntu-4
-    image: ubuntu:latest
-    restart: unless-stopped
+  ubuntu4:
+    build: .
+    container_name: ubuntu4
     ports:
       - "2224:22"
-    command: /usr/sbin/sshd -D
-    privileged: true
     networks:
-      - ubuntu-net
-    build:
-      context: .
-      dockerfile: Dockerfile
+      - ansible_network
 
-  ubuntu-5:
-    container_name: ubuntu-5
-    hostname: ubuntu-5
-    image: ubuntu:latest
-    restart: unless-stopped
+  ubuntu5:
+    build: .
+    container_name: ubuntu5
     ports:
       - "2225:22"
-    command: /usr/sbin/sshd -D
-    privileged: true
     networks:
-      - ubuntu-net
-    build:
-      context: .
-      dockerfile: Dockerfile
+      - ansible_network
+
+  ubuntu6:
+    build: .
+    container_name: ubuntu6
+    ports:
+      - "2226:22"
+    networks:
+      - ansible_network
 
 networks:
-  ubuntu-net:
+  ansible_network:
     driver: bridge
